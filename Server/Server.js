@@ -12,3 +12,7 @@ const server= http.createServer(app);
 app.use(express.json({limit:'4mb'}));
 app.use(cors()); 
 
+app.use("/api/status",(req,res)=>res.send("Server is Live"));
+
+const Port=process.env.Port || 5000;
+server.listen(Port,()=> console.log("Server is Running On Port "+Port));
